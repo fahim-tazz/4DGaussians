@@ -2,10 +2,10 @@ import os
 import numpy as np
 from torch.utils.data import Dataset
 from PIL import Image
-from utils.graphics_utils import focal2fov
-from scene.colmap_loader import qvec2rotmat
-from scene.dataset_readers import CameraInfo
-from scene.neural_3D_dataset_NDC import get_spiral
+from ..utils.graphics_utils import focal2fov
+from ..scene.colmap_loader import qvec2rotmat
+from ..scene.dataset_readers import CameraInfo
+from ..scene.neural_3D_dataset_NDC import get_spiral
 from torchvision import transforms as T
 
 

@@ -12,23 +12,23 @@
 import os
 import sys
 from PIL import Image
-from scene.cameras import Camera
+from ..scene.cameras import Camera
 
 from typing import NamedTuple
-from scene.colmap_loader import read_extrinsics_text, read_intrinsics_text, qvec2rotmat, \
+from ..scene.colmap_loader import read_extrinsics_text, read_intrinsics_text, qvec2rotmat, \
     read_extrinsics_binary, read_intrinsics_binary, read_points3D_binary, read_points3D_text
-from scene.hyper_loader import Load_hyper_data, format_hyper_data
+from ..scene.hyper_loader import Load_hyper_data, format_hyper_data
 import torchvision.transforms as transforms
 import copy
-from utils.graphics_utils import getWorld2View2, focal2fov, fov2focal
+from ..utils.graphics_utils import getWorld2View2, focal2fov, fov2focal
 import numpy as np
 import torch
 import json
 from pathlib import Path
 from plyfile import PlyData, PlyElement
-from utils.sh_utils import SH2RGB
-from scene.gaussian_model import BasicPointCloud
-from utils.general_utils import PILtoTorch
+from ..utils.sh_utils import SH2RGB
+from ..scene.gaussian_model import BasicPointCloud
+from ..utils.general_utils import PILtoTorch
 from tqdm import tqdm
 class CameraInfo(NamedTuple):
     uid: int
@@ -442,7 +442,7 @@ def readdynerfInfo(datadir,use_bg_points,eval):
     # loading all the data follow hexplane format
     # ply_path = os.path.join(datadir, "points3D_dense.ply")
     ply_path = os.path.join(datadir, "points3D_downsample2.ply")
-    from scene.neural_3D_dataset_NDC import Neural3D_NDC_Dataset
+    from ..scene.neural_3D_dataset_NDC import Neural3D_NDC_Dataset
     train_dataset = Neural3D_NDC_Dataset(
     datadir,
     "train",
@@ -599,7 +599,7 @@ def readMultipleViewinfos(datadir,llffhold=8):
     cameras_intrinsic_file = os.path.join(datadir, "sparse_/cameras.bin")
     cam_extrinsics = read_extrinsics_binary(cameras_extrinsic_file)
     cam_intrinsics = read_intrinsics_binary(cameras_intrinsic_file)
-    from scene.multipleview_dataset import multipleview_dataset
+    from ..scene.multipleview_dataset import multipleview_dataset
     train_cam_infos = multipleview_dataset(cam_extrinsics=cam_extrinsics, cam_intrinsics=cam_intrinsics, cam_folder=datadir,split="train")
     test_cam_infos = multipleview_dataset(cam_extrinsics=cam_extrinsics, cam_intrinsics=cam_intrinsics, cam_folder=datadir,split="test")
 

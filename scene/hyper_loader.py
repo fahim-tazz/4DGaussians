@@ -11,14 +11,14 @@ import torch
 from PIL import Image
 import math
 from tqdm import tqdm
-from scene.utils import Camera
+from ..scene.utils import Camera
 from typing import NamedTuple
 from torch.utils.data import Dataset
-from utils.general_utils import PILtoTorch
-# from scene.dataset_readers import 
+from ..utils.general_utils import PILtoTorch
+# from ..scene.dataset_readers import 
 import torch.nn.functional as F
-from utils.graphics_utils import getWorld2View2, focal2fov, fov2focal
-from utils.pose_utils import smooth_camera_poses
+from ..utils.graphics_utils import getWorld2View2, focal2fov, fov2focal
+from ..utils.pose_utils import smooth_camera_poses
 class CameraInfo(NamedTuple):
     uid: int
     R: np.array

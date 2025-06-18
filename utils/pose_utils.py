@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.spatial.transform import Rotation as R
-from scene.utils import Camera
+from ..scene.utils import Camera
 from copy import deepcopy
 def rotation_matrix_to_quaternion(rotation_matrix):
     return R.from_matrix(rotation_matrix).as_quat()

@@ -1,11 +1,11 @@
 from torch.utils.data import Dataset
-from scene.cameras import Camera
+from ..scene.cameras import Camera
 import numpy as np
-from utils.general_utils import PILtoTorch
-from utils.graphics_utils import fov2focal, focal2fov
+from ..utils.general_utils import PILtoTorch
+from ..utils.graphics_utils import fov2focal, focal2fov
 import torch
-from utils.camera_utils import loadCam
-from utils.graphics_utils import focal2fov
+from ..utils.camera_utils import loadCam
+from ..utils.graphics_utils import focal2fov
 class FourDGSdataset(Dataset):
     def __init__(
         self,

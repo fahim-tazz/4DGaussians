@@ -9,10 +9,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
-from utils.graphics_utils import apply_rotation, batch_quaternion_multiply
-from scene.hexplane import HexPlaneField
-from scene.grid import DenseGrid
-# from scene.grid import HashHexPlane
+from ..utils.graphics_utils import apply_rotation, batch_quaternion_multiply
+from ..scene.hexplane import HexPlaneField
+from ..scene.grid import DenseGrid
+# from ..scene.grid import HashHexPlane
 class Deformation(nn.Module):
     def __init__(self, D=8, W=256, input_ch=27, input_ch_time=9, grid_pe=0, skips=[], args=None):
         super(Deformation, self).__init__()
