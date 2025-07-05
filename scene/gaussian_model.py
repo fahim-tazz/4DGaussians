@@ -18,7 +18,8 @@ from ..utils.system_utils import mkdir_p
 from plyfile import PlyData, PlyElement
 from random import randint
 from ..utils.sh_utils import RGB2SH
-from ..submodules.simple_knn.simple_knn._C import distCUDA2
+# from ..submodules.simple_knn.simple_knn._C import distCUDA2
+from simple_knn._C import distCUDA2
 from ..utils.graphics_utils import BasicPointCloud
 from ..utils.general_utils import strip_symmetric, build_scaling_rotation
 from ..scene.deformation import deform_network
